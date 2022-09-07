@@ -1,0 +1,36 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: grid;
+    grid-template: 20vh 20vh 20vh 20vh 20vh/ 20vw 20vw 20vw 20vw 20vw;
+    grid-template-areas: "nav header header header header"
+    "nav main main main main"
+    "nav main main main main"
+    "nav main main main main"
+    "nav main main main main";
+}
+
+/* Designing navbar */
+
+.navbar {
+    grid-area: nav;
+    background-color: rgba(11, 106, 161, 0.842);
+}
+
+/* Designing header */
+
+.header {
+    grid-area: header;
+    background-color: whitesmoke;
+    box-shadow: 0px 2px 3px black;
+}
+
+/* designing main */
+
+main {
+    grid-area: main;
+    background-color: rgb(200, 200, 200);
+}
