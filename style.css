@@ -1,36 +1,296 @@
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
+}
+
+body {
+    box-sizing: border-box;
+    width: 100vw;
+    overflow-x: hidden;
+    overflow-x: auto;
+}
+
+:root {
+    --header-width : 10rem;
+    --main-padding : 1.2rem;
+    --light-text-ligt-theme: white;
+    --radius-curve : 0.7rem;
 }
 
 .container {
+    width: 100%;
     display: grid;
-    grid-template: 20vh 20vh 20vh 20vh 20vh/ 20vw 20vw 20vw 20vw 20vw;
-    grid-template-areas: "nav header header header header"
-    "nav main main main main"
-    "nav main main main main"
-    "nav main main main main"
-    "nav main main main main";
+    grid-template-columns: 1fr 4fr;
 }
 
-/* Designing navbar */
+/* Designing sidebar */
 
-.navbar {
-    grid-area: nav;
-    background-color: rgba(11, 106, 161, 0.842);
+.aside {
+    text-align: center;
+    padding-top: 2rem;
+    background-color: #008bb9;
+    min-width: 12rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 4rem 25rem;
 }
+
+.aside {
+    color: var(--light-text-ligt-theme);
+}
+
+.dash {
+    font-size: 2.2rem;
+}
+
+.aside .navbar {
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+}
+
+.aside .navbar a {
+    color: var(--light-text-ligt-theme);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.aside .navbar a:hover {
+    font-size: 1.2rem;
+}
+
+.navbar #setting {
+    margin-top: 3rem;
+}
+
+
 
 /* Designing header */
 
 .header {
-    grid-area: header;
     background-color: whitesmoke;
-    box-shadow: 0px 2px 3px black;
+    padding: var(--main-padding);
+    box-shadow: 0px 2px 8px rgba(62, 62, 62, 0.8);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: 3fr 5fr;
+    gap: 3rem;
+    position: relative;
 }
 
-/* designing main */
+ .searchbar {
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+    gap: 4rem;
+}
 
-main {
-    grid-area: main;
-    background-color: rgb(200, 200, 200);
+.searchbar input[type = "search"] {
+    background-color: rgba(206, 206, 206, 0.8);
+    border: none;
+    border-radius: 2rem;
+    padding: 0.3rem 0.8rem;
+}
+
+/* 
+Designing theme toggle div */
+
+.toggle-theme {
+    margin-left: 8rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-right: 4rem;
+}
+
+.toggle-theme .fa-sun {
+    transition: transform 0.2s;
+    margin-left: 1.5rem;
+}
+
+.toggle-theme .fa-sun:hover {
+    color: #006485;
+    cursor: pointer;
+    animation: rotate 2s 0.1s;
+}
+
+@keyframes rotate {
+    0% {transform: rotate(0deg);}
+    100% {transform: rotate(360deg);}
+}
+
+
+.toggle-theme .fa-bell:hover {
+    cursor: pointer;
+    color: rgb(223, 190, 0);
+    animation: ring 1s 0.1s;
+    transform: scale(1.1);
+}
+
+@keyframes ring {
+    0% {transform: rotate(0deg);}
+    20% {transform: rotate(11deg);}
+    40% {transform: rotate(-11deg);}
+    60% {transform: rotate(11deg);}
+    80% {transform: rotate(-11deg);}
+    100% {transform: rotate(0deg);}
+}
+
+#logohead {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+#logohead .buttons button {
+    background-color: #008bb9;
+    color: var(--light-text-ligt-theme);
+    padding: 0.3rem 0.8rem;
+    height: 2rem;
+    border: none;
+    border-radius: 0.8rem;
+    margin: 0 0.5rem;
+}
+
+#logohead .buttons {
+    display: flex;
+    margin-right: 3rem;
+}
+
+#logohead .buttons button:hover {
+    background-color: #006485;
+    cursor: pointer;
+}
+
+
+/* Designing main */
+
+.main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: var(--header-width) minmax(calc(100vh - var(--header-width)), 1fr);
+    background-color: rgba(206, 206, 206, 0.8);
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 5fr 2fr;
+    gap: 1rem;
+    padding: var(--main-padding);
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.2rem;
+    padding: var(--main-padding);
+}
+
+.projects div {
+    height: 150px;
+    text-align: center;
+    background-color: white;
+    border-radius: var(--radius-curve);
+    padding: var(--main-padding);
+    font-size: 1.2rem;
+}
+
+.project-4 img {
+    border: 2px solid black;
+}
+
+
+.projects div img {
+    margin-bottom: 1rem;
+}
+
+
+/* Designing the right sidebar */
+
+.other-information {
+    display: grid;
+    grid-template-columns: minmax(150px, 270px);
+    grid-template-rows: repeat(2, minmax(280px, 350px));
+    gap: 2rem;
+    margin-right: 1rem;
+}
+
+.announcement div {
+    background-color: white;
+    height: 80%;
+    margin-top: 1rem;
+    border-radius: var(--radius-curve);
+    padding: var(--main-padding);
+}
+
+.announcement div p {
+    margin: 2rem 0;
+}
+
+.trending div {
+    background-color: white;
+    height: 80%;
+    margin-top: 1rem;
+    border-radius: var(--radius-curve);
+    padding: var(--main-padding);
+}
+
+
+/* Adding media queries */
+
+@media screen and (max-width : 816px) {
+    .header {
+        gap: 2.5rem;
+    }
+
+    #logohead {
+    flex-direction: column;
+    text-align: center;
+   }
+    
+    #logohead .buttons {
+    margin: 0.3rem auto;
+   }
+
+    .aside {
+    display: none;
+   }
+
+    .toggle-button {
+    position: absolute;
+    left: 8px;
+    bottom: 8px;
+    height: 21px;
+    width: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.3rem;
+  }
+
+   .bar {
+    width: 100%;
+    height: 3px;
+    background-color: black;
+   }
+
+   .container {
+    grid-template-columns: 1fr;
+   }
+
+   .aside.active {
+    display: grid;
+   }
+}
+
+@media screen and (max-width: 520px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        align-items: center;
+    }
+
+    .other-information {
+        grid-template-columns: minmax(250px, 370px);
+    }
 }
